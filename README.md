@@ -1,14 +1,14 @@
-##Como compilar o programa na plataforma disponibilizada:
+## Como compilar o programa na plataforma disponibilizada:
 	O programa só funciona corretamente no sistema operacional linux.
 	Para compilar o programa basta executar no terminal o comando:
 	# gcc -std=c11 projeto.c -lpthread -o projeto
 	lembre-se de estar no diretório onde se encontra o código fonte.
 
-##Como executar o programa:
+## Como executar o programa:
 	Para executar o programa basta digitar no terminal o comando.
 	# ./projeto
 
-##Resultados propostos:
+## Resultados propostos:
 
 	Os resultados propostos foram:
 	
@@ -26,7 +26,7 @@
 
 	6. Poderão ser realizadas até 100 transações simultâneas de transferência. (Alcançado)
 
-##Como comprovar que os resultados propostos foram alcançados:
+## Como comprovar que os resultados propostos foram alcançados:
 
 	Os resultados propostos 2 e 3 podem ser comprovados ao olhar o código fonte,
 	nas linhas 116 e 120 executamos a função pthread_create e passamos a função transferencia
