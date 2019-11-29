@@ -1,7 +1,6 @@
 #define _GNU_SOURCE
 #include <stdlib.h>
 #include <time.h>
-#include <malloc.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <signal.h>
@@ -9,6 +8,9 @@
 #include <stdio.h>
 #include <stdatomic.h>
 #include <pthread.h>
+#ifdef __linux
+#include <malloc.h>
+#endif
 
 
 // 64kB stack
@@ -97,10 +99,17 @@ int main()
 
 	// Allocate the stack
 	stack = malloc( FIBER_STACK );
+
+	if (pthread_mutex_init(&lock, NULL) != 0)
+	{
+			printf("\n Falha na inicialização do mutex\n");
+			return 1;
+	}
+
 	if ( stack == 0 )
 	{
-		perror("malloc: could not allocate stack");
-		exit(1);
+			perror("malloc: could not allocate stack");
+			exit(1);
 	}
 
 	// Todas as contas começam com saldo 100
@@ -124,10 +133,10 @@ int main()
 	}
 
 	for(int i = 0; i < counter; i++)
-	    {
+	{
 		//Espera que as threads terminem de executar suas tarefas
 		pthread_join(pthread_id[i], NULL);
-	    }
+	}
 
 
 	// Free the stack

@@ -13,7 +13,7 @@
 	Os resultados propostos foram:
 	
 	1. O programa deve ser possível de executar em pelo menos dois dos 
-	três seguintes sistemas operacionais: GNU/Linux, Unix/POSIX e/ou Windows.      (Não alcançado)
+	três seguintes sistemas operacionais: GNU/Linux, Unix/POSIX e/ou Windows.      (Alcançado)
 
 	2. A conta to pode receber mais de uma transferência simultânea.           (Alcançado)
 
